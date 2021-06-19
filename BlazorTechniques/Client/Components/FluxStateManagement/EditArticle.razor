@@ -1,0 +1,39 @@
+﻿
+<div class="form-group">
+    <EditForm Model="Article" OnValidSubmit="OnValidSubmit">
+        <DataAnnotationsValidator />
+        <div class="row">
+            <div class="col-4">
+                <label for="@(nameof(Article.ShortDescrption))">Description</label>
+            </div>
+            <div class="col-8">
+                <InputText @bind-Value="Article.ShortDescrption"
+                           class="form-control" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-4">
+                <label for="@(nameof(Article.MainGroupId))">Main Group</label>
+            </div>
+            <div class="col-8">
+                <InputNumber @bind-Value="Article.MainGroupId"
+                             class="form-control" />
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-4">
+                <label for="@(nameof(Article.SubGroupId))">Sub Group</label>
+            </div>
+            <div class="col-8">
+                <InputNumber @bind-Value="Article.SubGroupId"
+                             class="form-control" />
+            </div>
+        </div>
+
+        <div class="row mt-2 float-right">
+            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="btn btn-secondary" type="button" 
+                    @onclick="@(_ => { Store.CancelEdit(); NavigationManager.NavigateTo("articles");})">Close</button>
+        </div>
+    </EditForm>
+</div>

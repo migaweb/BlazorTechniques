@@ -1,0 +1,38 @@
+﻿<h3>ArticlesList</h3>
+
+<table class="table table-responsive-sm">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Description</th>
+            <th>MG</th>
+            <th>SG</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var article in ArticleStore.GetArticles())
+        {
+            <tr>
+                <th>@article.Id</th>
+                <th>@article.ShortDescrption</th>
+                <th>@article.MainGroupId</th>
+                <th>@article.SubGroupId</th>
+                <th>
+                    <button @onclick="@(_ => DeleteArticle(article))"
+                            class="btn btn-danger" disabled="@ArticleStore.IsEditing">
+                        Delete
+                    </button>
+                </th>
+                <th>
+                    <button @onclick="@(_ => { NavigationManager.NavigateTo($"articles/{article.Id}"); })"
+                            class="btn btn-info">
+                        Edit
+                    </button>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
+

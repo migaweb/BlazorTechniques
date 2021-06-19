@@ -1,0 +1,20 @@
+﻿@page "/articles"
+@page "/articles/{id:int}"
+
+<h3>Articles @Store.Count</h3>
+
+
+    <div class="row">
+        <div class="col-6">
+            <AddArticle />
+            <ArticlesList />
+        </div>
+        <div class="col-6">
+            @if (ShowEdit)
+            {
+                <EditArticle Id="@Id" />
+            }
+        </div>
+    </div>
+
+

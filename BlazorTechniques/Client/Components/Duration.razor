@@ -1,0 +1,4 @@
+﻿<div class="@("form-control " + _fieldCssClasses)">
+    <InputNumber @bind-Value="Hours" min="0" max="23" @onblur="HoursOnBlur" style="width:50px;" /> :
+    <InputNumber @bind-Value="Minutes" min="0" max="59" @onblur="MinutesOnBlur" style="width:50px;" />
+</div>

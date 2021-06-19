@@ -1,0 +1,23 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+
+    <div class="main">
+        <div class="top-row">
+            <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-home" aria-hidden="true"></span> Home
+            </NavLink>
+            <NavLink class="nav-link" href="notify">
+                <span class="oi oi-plus" aria-hidden="true"></span> NotifyPropertyChanged
+            </NavLink>
+            <NavLink class="nav-link" href="articles">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Flux State Management
+            </NavLink>
+        </div>
+
+        <div class="content">
+            @Body
+        </div>
+    </div>
+</div>

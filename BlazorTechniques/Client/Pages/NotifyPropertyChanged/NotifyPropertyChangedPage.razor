@@ -1,0 +1,23 @@
+﻿@page "/notify"
+
+<h3>NotifyPropertyChanged</h3>
+<NotifyingUserProfileEdit UserProfile="UserProfile" />
+
+<div class="container" style="border-top: 1px solid #efefef">
+    <div class="row">
+        <div class="col-4">
+            Name
+        </div>
+        <div class="col-8">
+            @UserProfile.Name
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            Email
+        </div>
+        <div class="col-8">
+            @UserProfile.Email
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+﻿<EditForm Model="UserProfile">
+    <div class="container">
+        <div class="form-row">
+            <div class="col">
+                Name:
+                <InputText @bind-Value="UserProfile.Name" />
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                Email:
+                <input type="text" @bind="UserProfile.Email" @bind:event="oninput" />
+            </div>
+        </div>
+    </div>
+</EditForm>
