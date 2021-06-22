@@ -31,9 +31,22 @@
         </div>
 
         <div class="row mt-2 float-right">
+            <button class="btn btn-light" 
+                    @onclick="@(_ => PrevArticle())"
+                    disabled="@Store.IsFirst(Article.Id)"
+                    >@("<")
+            </button>&nbsp;
+            <button class="btn btn-light" 
+                    @onclick="@(_ => NextArticle())"
+                    disabled="@Store.IsLast(Article.Id)"        
+                    >@(">")
+            </button>
             <button class="btn btn-primary" type="submit">Save</button>
-            <button class="btn btn-secondary" type="button" 
-                    @onclick="@(_ => { Store.CancelEdit(); NavigationManager.NavigateTo("articles");})">Close</button>
+            <button class="btn btn-secondary" type="button"
+                    @onclick="@(_ => { Store.CancelEdit(); NavigationManager.NavigateTo("articles");})">
+                Close
+            </button>
+
         </div>
     </EditForm>
 </div>

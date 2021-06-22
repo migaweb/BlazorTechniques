@@ -7,7 +7,7 @@ namespace BlazorTechniques.Client.Stores.ArticleStore
 {
   public class ArticleState
   {
-    public List<Article> Articles { get; init; }
+    public List<Article> Articles { get; init; } // Immutable
 
     public ArticleState(List<Article> articles = null)
     {
@@ -23,7 +23,7 @@ namespace BlazorTechniques.Client.Stores.ArticleStore
   public class ArticleStore
   {
     private ArticleState _state;
-    public bool IsEditing { get; set; }
+    public bool IsEditing { get; private set; }
 
     public int Count { get => _state?.Articles.Count ?? 0; }
 
@@ -34,6 +34,37 @@ namespace BlazorTechniques.Client.Stores.ArticleStore
         _state = new ArticleState();
       }
       return _state.Articles;
+    }
+
+    public bool IsFirst(int id)
+    {
+      return _state.Articles.IndexOf(GetArticleById(id)) == 0;
+    }
+
+    public bool IsLast(int id)
+    {
+      return _state.Articles.IndexOf(GetArticleById(id)) == _state.Articles.Count - 1;
+    }
+
+    public Article NextArticle(int id)
+    {
+      var index = _state.Articles.IndexOf(GetArticleById(id));
+
+      if (index > _state.Articles.Count) return null;
+      return _state.Articles[++index];
+    }
+
+    public Article PrevArticle(int id)
+    {
+      var index = _state.Articles.IndexOf(GetArticleById(id));
+
+      if (index <= 0) return null;
+      return _state.Articles[--index];
+    }
+
+    public Article GetArticleById(int id)
+    {
+      return _state.Articles.Single(e => e.Id == id);
     }
 
     public Article EditArticle(int id)
