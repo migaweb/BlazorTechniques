@@ -1,0 +1,16 @@
+﻿@page "/busy"
+
+<h1>Busy Overlay Test</h1>
+
+@if (!String.IsNullOrEmpty(_message))
+{
+<div>
+    @_message
+</div>
+}
+
+<div>
+    <button type="button" @onclick="SetBusy">Be Busy</button>
+    <button type="button" @onclick="SetNotSoBusy">Not So Busy</button>
+    <button type="button" @onclick="CancelBusy">Cancel Busy</button>
+</div>
